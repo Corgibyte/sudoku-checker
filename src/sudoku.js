@@ -17,3 +17,7 @@ Sudoku.prototype.addBox = function(num, row, col) {
 Sudoku.prototype.getBoxValue = function(row, col) {
   return this.board[row -1][col -1];
 };
+
+Sudoku.prototype.isLegal = function() {
+
+};

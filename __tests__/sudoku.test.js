@@ -20,5 +20,11 @@ describe('Sudoku', () => {
     testSudoku.addBox(3,3,4);
     expect(testSudoku.getBoxValue(3,4)).toEqual(3);
   })
+
+  test('should return a boolean based on whether the board is legal', () => {
+    let testSudoku = new Sudoku();
+    testSudoku.isLegal();
+    expect(testSudoku.isLegal()).toEqual(true);
+  })
 });
 
