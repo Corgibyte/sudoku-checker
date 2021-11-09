@@ -15,5 +15,5 @@ Sudoku.prototype.addBox = function(num, row, col) {
 
 //returns value of given box
 Sudoku.prototype.getBoxValue = function(row, col) {
-
+  return this.board[row -1][col -1];
 };
