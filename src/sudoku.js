@@ -19,5 +19,15 @@ Sudoku.prototype.getBoxValue = function(row, col) {
 };
 
 Sudoku.prototype.isLegal = function() {
+  // for (let i = 0; i < 9; i++) {
+  //   if (this.board[i]
+  // }
+};
 
+Sudoku.prototype.isLegalGroup = function(array) {
+  let isLegal = true;
+  for (let i = 1; i <= 9 && isLegal; i++) {
+    isLegal = array.includes(i);
+  }
+  return isLegal;
 };

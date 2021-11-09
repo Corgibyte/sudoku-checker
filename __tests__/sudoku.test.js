@@ -19,12 +19,24 @@ describe('Sudoku', () => {
     let testSudoku = new Sudoku();
     testSudoku.addBox(3,3,4);
     expect(testSudoku.getBoxValue(3,4)).toEqual(3);
-  })
+  });
 
   test('should return a boolean based on whether the board is legal', () => {
     let testSudoku = new Sudoku();
     testSudoku.isLegal();
     expect(testSudoku.isLegal()).toEqual(true);
-  })
+  });
+
+  test('should return false for bad group', () => {
+    let testSudoku = new Sudoku();
+    let testArray = [1,1,3,4,5,6,7,8,9];
+    expect(testSudoku.isLegalGroup(testArray)).toEqual(false);
+  });
+
+  test('should return true for good group', () => {
+    let testSudoku = new Sudoku();
+    let testArray = [1,2,3,4,5,6,7,8,9];
+    expect(testSudoku.isLegalGroup(testArray)).toEqual(true);
+  });
 });
 
