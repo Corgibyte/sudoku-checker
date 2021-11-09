@@ -1,0 +1,21 @@
+.square {
+  border:black solid 1px;
+  width:95px;
+  height:95px;
+  min-width:95px;
+  min-height:95px;
+  padding:0px;
+  margin:0px;
+  /* box-sizing: border-box; */
+}
+
+h3 {
+  font-size: 70px;
+  text-align: center;  
+  margin:0px;
+  padding:0px;
+}
+
+form {
+  display: inline;
+}
