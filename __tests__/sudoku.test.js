@@ -5,7 +5,8 @@ describe('Sudoku', () => {
 
     test('should create sudoku object with no values', () => {
       let testSudoku = new Sudoku();
-      expect(testSudoku.getBoxValue(1,1)).toEqual(0);
+      expect(testSudoku.board[0][0]).toEqual(0);
+      expect(testSudoku.board[8][8]).toEqual(0);
     });
 });
 
