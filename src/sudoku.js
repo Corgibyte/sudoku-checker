@@ -10,7 +10,7 @@ export function Sudoku() {
 }
 
 Sudoku.prototype.addBox = function(num, row, col) {
-  
+  this.board[row -1][col - 1] = num;
 };
 
 //returns value of given box
