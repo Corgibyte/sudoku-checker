@@ -12,7 +12,13 @@ describe('Sudoku', () => {
   test('should add a provided value to a specific box', () => {
     let testSudoku = new Sudoku();
     testSudoku.addBox(3,3,4);
-    expect(testSudoku.board[2][3]).toEqual(3)
+    expect(testSudoku.board[2][3]).toEqual(3);
   });
+
+  test('should return the value of a specific box', () => {
+    let testSudoku = new Sudoku();
+    testSudoku.addBox(3,3,4);
+    expect(testSudoku.getBoxValue(3,4)).toEqual(3);
+  })
 });
 
