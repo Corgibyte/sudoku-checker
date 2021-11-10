@@ -35,7 +35,7 @@ describe('Sudoku', () => {
   test('should return false if board is empty', () => {
     let testSudoku = new Sudoku();    
     testSudoku.isLegal();
-    expect(testSudoku.isLegal()).toEqual(true);
+    expect(testSudoku.isLegal()).toEqual(false);
   });
 
   test('should return false for bad group', () => {
@@ -46,6 +46,18 @@ describe('Sudoku', () => {
   test('should return true for good group', () => {
     let testArray = [1,2,3,4,5,6,7,8,9];
     expect(isLegalGroup(testArray)).toEqual(true);
+  });
+
+  test('should return first square of built board', () => {
+    let testSudoku = new Sudoku();
+    for (let i = 1; i <= 9; i++) {
+      for (let j = 1; j <= 9; j++) {
+        testSudoku.addBox(j, i, j);
+      } 
+    }
+    const testSquare = [1,2,3,1,2,3,1,2,3];
+    const squares = testSudoku.getSquares();
+    expect(squares[0]).toEqual(testSquare);
   });
 });
 

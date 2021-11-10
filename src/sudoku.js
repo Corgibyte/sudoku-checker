@@ -19,9 +19,46 @@ Sudoku.prototype.getBoxValue = function(row, col) {
 };
 
 Sudoku.prototype.isLegal = function() {
-  // for (let i = 0; i < 9; i++) {
-  //   if (this.board[i]
-  // }
+  //check columns  
+  for (let i = 0; i < 9; i++) {
+    if (!isLegalGroup(this.board[i])) {
+      return false;
+    }
+  }
+  //check rows
+  for (let i = 0; i < 9; i++) {
+    let rowTest = [];
+    for (let j = 0; j < 9; j++) {
+      rowTest.push(this.board[j][i]);
+    }
+    if (!isLegalGroup(rowTest)) {
+      return false;
+    }
+  }
+  //check squares
+  const squares = this.getSquares();
+  for (let i = 0; i < 9; i++) {
+    if (!isLegalGroup(squares[i])) {
+      return false;
+    }
+  }
+  return true;
+};
+
+Sudoku.prototype.getSquares = function() {
+  let squares = [];
+  for (let row = 0; row < 9; row += 3) {
+    for (let col = 0; col < 9; col += 3) {
+      let square = [];
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          square.push(this.board[row + i][col + j]);
+        }
+      }
+      squares.push(square);
+    }
+  }
+  return squares;
 };
 
 export function isLegalGroup(array) {
@@ -30,4 +67,4 @@ export function isLegalGroup(array) {
     isLegal = array.includes(i);
   }
   return isLegal;
-};
+}
