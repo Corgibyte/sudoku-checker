@@ -38,13 +38,6 @@ describe('Sudoku', () => {
     expect(testSudoku.isLegal()).toEqual(true);
   });
 
-  test('should return false if board is empty', () => {
-    let testSudoku = new Sudoku();    
-    testSudoku.isLegal();
-    expect(testSudoku.isLegal()).toEqual(true);
-  });
-
-
   test('should return false for bad group', () => {
     let testArray = [1,1,3,4,5,6,7,8,9];
     expect(isLegalGroup(testArray)).toEqual(false);
