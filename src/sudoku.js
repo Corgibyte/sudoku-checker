@@ -24,7 +24,7 @@ Sudoku.prototype.isLegal = function() {
   // }
 };
 
-Sudoku.prototype.isLegalGroup = function(array) {
+export function isLegalGroup(array) {
   let isLegal = true;
   for (let i = 1; i <= 9 && isLegal; i++) {
     isLegal = array.includes(i);

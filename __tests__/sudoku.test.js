@@ -1,5 +1,6 @@
 import { exportAllDeclaration } from '@babel/types';
 import { Sudoku } from './../src/sudoku.js';
+import { isLegalGroup } from './../src/sudoku.js';
 
 describe('Sudoku', () => {
 
@@ -23,7 +24,10 @@ describe('Sudoku', () => {
 
   test('should return true if board is legal', () => {
     let testSudoku = new Sudoku();
-    //create solved board
+    testSudoku.board = [[4,3,5,2,6,9,7,8,1],
+      [6,8,2,5,7,1,4,9,3], [1,9,7,8,3,4,5,6,2], [8,2,6,1,9,5,3,4,7],
+      [3,7,4,6,8,2,9,1,5], [9,5,1,7,4,3,6,2,8], [5,1,9,3,2,6,8,7,4],
+      [2,4,8,9,5,7,1,3,6],[7,6,3,4,1,8,2,5,9]];
     testSudoku.isLegal();
     expect(testSudoku.isLegal()).toEqual(true);
   });
@@ -34,16 +38,21 @@ describe('Sudoku', () => {
     expect(testSudoku.isLegal()).toEqual(true);
   });
 
+  test('should return false if board is empty', () => {
+    let testSudoku = new Sudoku();    
+    testSudoku.isLegal();
+    expect(testSudoku.isLegal()).toEqual(true);
+  });
+
+
   test('should return false for bad group', () => {
-    let testSudoku = new Sudoku();
     let testArray = [1,1,3,4,5,6,7,8,9];
-    expect(testSudoku.isLegalGroup(testArray)).toEqual(false);
+    expect(isLegalGroup(testArray)).toEqual(false);
   });
 
   test('should return true for good group', () => {
-    let testSudoku = new Sudoku();
     let testArray = [1,2,3,4,5,6,7,8,9];
-    expect(testSudoku.isLegalGroup(testArray)).toEqual(true);
+    expect(isLegalGroup(testArray)).toEqual(true);
   });
 });
 
